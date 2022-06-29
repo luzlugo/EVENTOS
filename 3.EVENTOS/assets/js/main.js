@@ -1,12 +1,18 @@
 const productosContainer = document.querySelector('#Container')
+const carritoContenedor = document.querySelector('#carrito-contenedor')
+
+const contadorCarrito = document.querySelector('#contadorCarrito')
+const precioTotal = document.querySelector ('#precioTotal')
+
+const carrito = []
 
 const item = Habitaciones[0]
 
-const div = document.createElement('div')
-div.classList.add('producto')
+Habitaciones.forEach((item) => {
+    const div = document.createElement('div')
+    div.classList.add('producto')
 
-
-div.innerHTML =`
+    div.innerHTML =`
 
 <div id="Container"  class="habitacion1">
 <div class="desc-hab">
@@ -28,7 +34,7 @@ div.innerHTML =`
                ${item.precio}
             </span>
             <br><br>
-            <a class="boton boton-re" > RESERVAR  </a>
+            <button onclick="agregarAlCarrito(${item.id})" class="reservar"><i class="fas fa-shopping-cart"></i> Reservar</button>
         </div>
     </div>
 
@@ -72,9 +78,8 @@ div.innerHTML =`
            ${item.precio}
         </span>
         <br><br>
-        <a class="boton boton-re" target="blank"
-            href="https://api.whatsapp.com/send?phone=573194792521">RESERVAR <i class="fa-brands fa-whatsapp fa-reser"></i></a>
-    </div>
+        <button onclick="agregarAlCarrito(${item.id})" class="reservar"><i class="fas fa-shopping-cart"></i> Reservar</button>
+        </div>
 
 </div>
 
@@ -88,3 +93,66 @@ div.innerHTML =`
 console.log(div)
 productosContainer.append(div)
 
+
+})
+
+
+const agregarAlCarrito = (id) =>{
+const item = Habitaciones.find( (producto) => producto.id === id)
+carrito.push(item)
+
+console.log (carrito)
+renderCarrito()
+renderCantidad()
+renderTotal()
+}
+
+const removerDeCarrito = (id) => {
+
+    const item = carrito.find ((producto) =>  producto.id === id)
+    const indice = carrito.indexOf(item)
+    carrito.splice (indice, 1)
+
+    console.log(carrito)
+    renderCarrito()
+    renderCantidad()
+    renderTotal()
+}
+
+const renderCarrito = () => {
+
+    carritoContenedor.innerHTML =  ` `
+
+    carrito.forEach((item) => {
+
+       const div = document.createElement('div')
+       div.classList.add('productoEnCarrito')
+
+       div.innerHTML = `
+       
+                    <p>${item.nombre}</p>
+                    <p>precio: $${item.precio}</p>
+                    <button onclick="removerDeCarrito(${item.id})" class="buton-eliminar"><i class="fa-solid fa-trash-can"></i></button>
+       
+                       `
+
+       carritoContenedor.append(div)              
+
+    })
+}
+
+const renderCantidad = () => {
+
+      contadorCarrito.innerText = carrito.length
+      
+}
+
+const renderTotal = () => {
+    let total = 0
+    carrito.forEach((producto)=> {
+      total += producto.precio 
+
+    })
+
+    precioTotal.innerText = total
+}
