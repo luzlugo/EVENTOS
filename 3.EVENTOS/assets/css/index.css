@@ -68,7 +68,7 @@ a {
     line-height: 24px;
 }
 
-a.boton {
+button {
     background-color: #1a923e;
     color: #fff;
     font-size: 20px;
@@ -79,23 +79,75 @@ a.boton {
     font-weight: 600;
 }
 
+button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
 ul {
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
+.modal-contenedor{
+
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left:0;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s all ease-in-out;
+
+}
+
+.modal-carrito{
+
+    background-color: #fff;
+    width: 320px;
+    height: auto;
+    border-radius: 20px;
+    padding: 20px;
+
+}
+.buton-eliminar, #carrito-cerrar {
+    padding: 5px;
+}
 
 
+h3.titulo-modal{
+
+    text-align: center;
+}
+
+.productoEnCarrito{
+
+    text-align: center;
+    padding: 15px 0;
+    gap: 2.5em;
+    display: flex;
+}
+
+.modal-contenedor--visible{
+
+    opacity: 1;
+    visibility: visible;
+}
 /*MENU* RESPONSIVE*/
 
 header {
-    position: fixed;
-    z-index: 99999;
-    width: 100%;
-    height: 96px;
     background-color: #ffffff;
-    opacity: 0.90;
+    display: flex;
+    gap: 2em;
+    justify-content: space-around;
+    margin: 2em 0 0 0;
 }
 
 nav {
