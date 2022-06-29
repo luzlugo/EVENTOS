@@ -25,6 +25,7 @@
     <header class="bordered rounded">
 
         <h1>Reserva tu habitacion</h1>
+        <button id="boton-carrito"> <i class="fa-solid fa-cart-shopping"></i><span id="contadorCarrito"> 0</span></button>
     </header>
 
 
@@ -36,7 +37,7 @@
                     <div class="carousel-item active">
                         <img src="../assets/img/hab3.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption">
-                            <h1 class="hab-h1">Nuestras Habitaciones</h1>
+                            <h1 class="hab-h1">Abajo nuestras habitaciones ↓</h1>
                         </div>
                     </div>
                 </div>
@@ -49,87 +50,35 @@
 
         <section>
             <div id="Container" class="habitacion1">
-                <div class="desc-hab">
-                    <img class="hab-img" src="../assets/img/economica.jpg" alt="" width="600px" height="296px">
-                </div>
-
-                <div class="desc-hab-1 habitaciones-desc-index">
-                    <div class="titulo-hab-boton">
-                        <div class="hab-descr-ec">
-                            <h2 class="subtitle"> Habitación Doble Económica </h2>
-                            <p class="hab">
-                                Cama doble ventilador y baño privado
-                            </p>
-                        </div>
-
-
-                        <div class="boton">
-                            <span class="hab precio">
-                                $40.000 COP / noche
-                            </span>
-                            <br><br>
-                            <a class="boton boton-re"> RESERVAR </a>
-                        </div>
-                    </div>
-
-
-                    <div class="lista-hab">
-
-                        <span class="hab">
-                            Caracteristicas:
-                        </span>
-                        <ul class="hab-ul">
-                            <li class="hab-li">
-                                <i class="fa-solid fa-wifi"></i>
-                                WIFI
-                            </li>
-
-                            <li class="hab-li">
-                                <i class="fa-solid fa-fan"></i>
-                                Ventilador
-                            </li>
-                            <li class="hab-li">
-                                <i class="fa-solid fa-shower"></i>
-                                Baño privado
-                            </li>
-                            <li class="hab-li">
-                                <i class="fa-solid fa-rug"></i>
-                                Toallas de baño
-                            </li>
-                            <li class="hab-li">
-                                <i class="fa-solid fa-kitchen-set"></i>
-                                Acceso a cocina
-                            </li>
-                            <li class="hab-li">
-                                <i class="fa-solid fa-square-parking"></i>
-                                Parqueo de acceso publico
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="boton2">
-                        <span class="hab precio">
-                            $40.000 COP / noche
-                        </span>
-                        <br><br>
-                        <a class="boton boton-re" target="blank"
-                            href="https://api.whatsapp.com/send?phone=573194792521">RESERVAR <i
-                                class="fa-brands fa-whatsapp fa-reser"></i></a>
-                    </div>
-
-                </div>
-
 
             </div>
 
 
-            <hr class="hab-hr">
-
-
         </section>
-
-
     </main>
+
+    <div  id="modal-contenedor" class="modal-contenedor">
+
+        <div id="modal-carrito" class="modal-carrito">
+            <button id="carrito-cerrar"><i class="fas fa-times-circle"></i></button>
+            
+            <h3 class="titulo-modal"> Resumen de reserva</h3>
+            <div id="carrito-contenedor">
+
+                <div class="productoEnCarrito">
+                     <!--
+                    <p>habitacion</p>
+                    <p>precio: $1200</p>
+                    <button class="buton-eliminar"><i class="fa-solid fa-trash-can"></i></button>
+                     -->
+                </div>
+
+            </div>
+            <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+        </div>
+    </div>
+
+
 
 
     <footer class="footer">
